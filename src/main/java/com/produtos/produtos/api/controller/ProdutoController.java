@@ -26,5 +26,11 @@ public class ProdutoController {
         return produto;
     }
 
+    @GetMapping("/{id}")
+    public Produto buscarPorId(@PathVariable String id){
+        // Equivale a usar o Optional<Produto>
+        return produtoRepository.findById(id).orElse(null);
+    }
+
 
 }
